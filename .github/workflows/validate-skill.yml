@@ -1,0 +1,33 @@
+name: Validate Skill
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install yt-dlp
+        run: python -m pip install -U 'yt-dlp[default]'
+
+      - name: Validate skill structure
+        run: python3 ./scripts/quick_validate.py ./yt-dlp-media
+        
+
+      - name: Verify facade help
+        run: ./yt-dlp-media/scripts/yt_dlp.sh --help
+
+      - name: Probe public media
+        run: ./yt-dlp-media/scripts/yt_dlp.sh probe --url 'https://vimeo.com/76979871'
