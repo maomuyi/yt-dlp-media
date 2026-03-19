@@ -1,0 +1,13 @@
+.DS_Store
+output/
+docs/
+yt-dlp-src/
+
+# Skill runtime state
+/yt-dlp-media/jobs/*
+!/yt-dlp-media/jobs/.gitkeep
+
+# Common runtime noise
+*.log
+*.tmp
+*.temp

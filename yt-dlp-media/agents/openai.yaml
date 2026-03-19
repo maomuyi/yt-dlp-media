@@ -1,0 +1,4 @@
+interface:
+  display_name: "YT-DLP Media"
+  short_description: "Stable yt-dlp media wrapper and job workflow"
+  default_prompt: "Use $yt-dlp-media to probe, download, extract, or manage yt-dlp media jobs."
